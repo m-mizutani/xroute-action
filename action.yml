@@ -28,7 +28,7 @@ runs:
       id: token
       shell: bash
       run: |
-        ID_TOKEN=$(curl -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" ${ACTIONS_ID_TOKEN_REQUEST_URL} -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" -d "{}" | jq -r '.value')
+        ID_TOKEN=$(curl -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" ${ACTIONS_ID_TOKEN_REQUEST_URL} -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" -q -d "{}" | jq -r '.value')
         echo "id_token=${ID_TOKEN}" >> $GITHUB_OUTPUT
 
     - name: Send JSON data via POST
@@ -42,7 +42,7 @@ runs:
 
           console.log(`Sending POST request to ${url} with commit SHA ${commitSHA} and message ${message}`);
 
-          const response = await fetch(url + ${inputs.path}, {
+          const response = await fetch(url + ${{ inputs.path }}, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
