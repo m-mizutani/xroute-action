@@ -20,6 +20,7 @@ jobs:
       contents: read
 
     steps:
+      - uses: actions/checkout@v4
       - uses: ./../../
         with:
           url: ${{ github.event.inputs.url }}
