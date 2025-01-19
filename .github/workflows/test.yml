@@ -1,0 +1,26 @@
+name: test
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "The URL to send the data for xroute"
+        required: true
+      message:
+        description: "The message to send"
+        required: false
+        default: "hello"
+
+jobs:
+  post_json:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: ./../../
+        with:
+          url: ${{ github.event.inputs.url }}
+          message: ${{ github.event.inputs.message }}
