@@ -17,9 +17,10 @@ runs:
   using: "composite"
   steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Get Commit SHA
+      shell: bash
       id: sha
       run: echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_ENV
 
