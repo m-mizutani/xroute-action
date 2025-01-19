@@ -35,7 +35,6 @@ runs:
       uses: actions/github-script@v6
       with:
         script: |
-          const fetch = require('node-fetch');
           const url = `${{ inputs.url }}`;
           const commitSHA = process.env.commit_sha;
           const message = `${{ inputs.message }}`;
