@@ -26,12 +26,7 @@ runs:
 
     - name: Get OIDC Token
       id: token
-      uses: actions/github-script@v6
-      with:
-        script: |
-          const { getIDToken } = require('@actions/core');
-          const idToken = await getIDToken('your-audience');
-          return idToken;
+      run: echo "id_token=$(curl -H \"Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN\" \"$ACTIONS_ID_TOKEN_REQUEST_URL\")" >> $GITHUB_ENV
 
     - name: Send JSON data via POST
       uses: actions/github-script@v6
