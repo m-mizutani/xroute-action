@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: ./../../
+      - uses: ./
         with:
           url: ${{ github.event.inputs.url }}
           message: ${{ github.event.inputs.message }}
