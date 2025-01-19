@@ -42,7 +42,7 @@ runs:
 
           console.log(`Sending POST request to ${url} with commit SHA ${commitSHA} and message ${message}`);
 
-          const response = await fetch(url + ${{ inputs.path }}, {
+          const response = await fetch(url + `${{ inputs.path }}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
