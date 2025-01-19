@@ -1,5 +1,4 @@
 name: "Post message to xroute"
-description: "Posts JSON data to a specified URL with OIDC token"
 
 inputs:
   url:
